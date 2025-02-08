@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="CSS/output.css">
+        <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+        <script src="JS/torneio.js" defer> </script>
+        <title> AFEB - Torneio </title>
+
+    </head>
+
+
+    <body>
+
+        <header class="absolute w-screen px-4 md:px-12 2xl:px-20 top-8 flex justify-between">
+            <!-- Logo -->
+            <a href="index.html#">
+                <img src="imgs/CCX.jpg" alt="Logo CCX" class="logo">
+            </a>
+
+            <!-- Navbar -->
+            <nav>
+                <ul class="flex justify-around gap-2 md:gap-8 pt-2 xl:pt-4 md:text-base text-xs">
+                    <a href="ranking.html"> <li class="nav-li"> Ranking </li> </a>
+                    <a href="torneios.html"> <li class="nav-li"> Torneios </li> </a>
+                    <a href="sobre-nos.html"> <li class="nav-li"> Sobre nós </li> </a>
+                    <!-- <a href="login.html"> <li class="btn-entrar"> Entrar </li> </a> -->
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div id="bg-perfil"> </div>
+            
+            <section id="dados-torneio" class="md:mx-[10vw] mx-[8vw]">
+                <div>
+                    <h1 id="titulo-torneio"> Título torneio </h1>
+
+                    <p id="descricao-torneio"> Descrição do torneio. </p>
+                </div>
+
+                <div id="linha-perfil"></div>
+
+                <div>
+                    <p class="font-bold text-lg pt-8"> Comentários: </p>
+                    <div id="informacoes-torneio-container">
+                        <p id="comentarios-torneio"> Não há comentários para este torneio. </p>
+                    </div>
+
+                    <div class="flex gap-2 text-lg">
+                        <p class="font-bold"> Participantes: </p>
+                        <p id="torneio-participantes"> 0 </p>
+                    </div>
+
+                    <div class="pt-12">
+                        <p class="text-lg md:text-xl font-bold"> Resultados: </p>
+                        <div id="informacoes-torneio-container">
+                            <p id="torneio-resultados"> Sem resultados para este torneio até o momento. </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+    </body>
+
+</html>

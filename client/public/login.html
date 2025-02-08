@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="CSS/output.css">
+        <link rel="stylesheet" href="./CSS/login.css">
+        <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <script src="JS/login.js" defer></script>
+        <title> CCX - Login </title>
+
+    </head>
+
+
+    <body>
+        <header class="absolute w-screen px-4 md:px-12 2xl:px-20 top-8 flex justify-between">
+            <!-- Logo -->
+            <a href="index.html#">
+                <img src="imgs/CCX.jpg" alt="Logo CCX" class="logo">
+            </a>
+
+            <!-- Navbar -->
+            <nav>
+                <ul class="flex justify-around gap-2 md:gap-8 pt-2 xl:pt-4 md:text-base text-xs">
+                    <a href="ranking.html"> <li class="nav-li"> Ranking </li> </a>
+                    <a href="torneios.html"> <li class="nav-li"> Torneios </li> </a>
+                    <a href="sobre-nos.html"> <li class="nav-li"> Sobre nós </li> </a>
+                    <!-- <a href="login.html"> <li class="btn-entrar"> Entrar </li> </a> -->
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- formulario de login  -->
+            <div class="login-container">
+                <form class="login-form">
+                  <h1 class="title-form">Bem vindo de volta!</h1>
+                  <div class="input-group">
+                    <label for="username">Nome de usuário</label>
+                    <div class="input-icon">
+                      <i class="fa fa-user icon"></i>
+                      <input type="text" id="username" name="username" required>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <label for="password">Senha</label>
+                    <div class="input-icon">
+                      <i class="fa fa-lock icon-left"></i> 
+                      <input type="password" id="password" name="password" required>
+                      <i class="fa fa-eye icon-right" onclick="verCertinho()"></i> 
+                    </div>
+                  </div>
+                  <button id="login-btn" class="button-form" type="submit">
+                      Entrar
+                  </button>
+                </form>
+              </div>
+        </main>
+        
+    </body>
+    
+</html>

@@ -1,0 +1,125 @@
+/*
+ * Feito por https://github.com/geovaniorsoli
+ */
+
+/* formulário de login */
+.login-container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-form {
+  background: #ffffff;
+  padding: 4rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  min-height: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-form{
+  text-align: center;
+  margin-bottom: 5rem;
+  font-size: 30px;
+  font-weight: bold;
+  
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  padding: .30rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: .30rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-form {
+  width: 100%;
+  padding: .75rem;
+  border: none;
+  border-radius: 12px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 2rem;
+  transition: all ease-in-out .2s;
+}
+
+.button-form:hover {
+  background: #333;
+}
+
+.icon {
+  position: absolute;
+  left: 10px;
+  color: #555;
+}
+
+.icon-right {
+  position: absolute;
+  right: 10px;
+  color: #555;
+  cursor: pointer;
+}
+
+
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon-left, .icon-right {
+  position: absolute;
+  color: #555;
+}
+
+.icon-left {
+  left: 10px;
+}
+
+.input-icon input {
+  padding-left: 30px; 
+  padding-right: 30px; 
+  width: 100%; 
+}
+
+/* formulário - login responsividade */
+@media (max-width: 768px) {
+  .login-form {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 2rem; 
+  }
+}
+
+@media (max-width: 375px) {
+  .login-form {
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    min-height: 100px;      
+  }
+}
