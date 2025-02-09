@@ -10,7 +10,7 @@ online. Tudo 100% gratuito e aberto a todos os moradores da Região Metropolitan
 
 ## Sobre o projeto
 
-Este projeto é um fork do meu projeto <a href="https://github.com/vidacalura/AFEB">AFEB</a>
+Este projeto é um fork do meu projeto <a href="https://github.com/vidacalura/CCX-site">AFEB</a>
 
 Este repositório contém o website oficial do CCX, contendo rankings, informações
 de jogadores, torneios e muito mais!

@@ -1,4 +1,5 @@
-const API = "https://afeb-api.onrender.com/api";
+//const API = "https://afeb-api.onrender.com/api";
+const API = "http://127.0.0.1:4000/api";
 
 fetchTorneio()
 .then((torn) => {
@@ -79,6 +80,7 @@ function mostrarMensagemErro(erro) {
  * @returns {string} - Data formatada em DD/MM/YYYY.
  */
 function formatarData(data) {
+    data = data.split("T")[0];
     const [ano, mes, dia] = data.split("-");
     return `${dia}/${mes}/${ano}`;
 }

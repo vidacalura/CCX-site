@@ -12,8 +12,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
-	"github.com/vidacalura/AFEB/internal/models"
-	"github.com/vidacalura/AFEB/internal/utils"
+	"github.com/vidacalura/CCX-site/internal/models"
+	"github.com/vidacalura/CCX-site/internal/utils"
 )
 
 func Login(c *gin.Context) {

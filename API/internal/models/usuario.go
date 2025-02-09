@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/vidacalura/AFEB/internal/utils"
+	"github.com/vidacalura/CCX-site/internal/utils"
 )
 
 type Usuario struct {
@@ -71,7 +71,7 @@ func (u *Usuarios) GetUsuarios() (int, string) {
 func (u *Usuario) GetUsuario(username string) (int, string) {
 	selectUsu := `
 		SELECT cod_usu, username, adm, data_reg FROM Usuarios
-		WHERE username = ?;`
+		WHERE username = $1;`
 
 	row := E.DB.QueryRow(selectUsu, username)
 	err := row.Scan(&u.CodUsu, &u.Username, &u.Adm, &u.DataReg)
@@ -124,7 +124,7 @@ func (u Usuario) EditarUsuario() (int, string) {
 // Exclui um usuário do sistema
 func (u Usuario) ExcluirUsuario() (int, string) {
 	// Verifica se usuário existe
-	selectUsu := "SELECT username FROM Usuarios WHERE username = ?;"
+	selectUsu := "SELECT username FROM Usuarios WHERE username = $1;"
 
 	row := E.DB.QueryRow(selectUsu, u.Username)
 
@@ -152,22 +152,22 @@ func (u Usuario) ExcluirUsuario() (int, string) {
 func (u Usuario) ValidarLogin() bool {
 	selectUsu := `
 		SELECT cod_usu FROM Usuarios
-		WHERE BINARY username = ? AND BINARY senha = ?;`
+		WHERE BINARY username = $1 AND BINARY senha = $2;`
 
 	row := E.DB.QueryRow(selectUsu, u.Username, u.Senha)
-	
+
 	var codUsu []byte
 	if err := row.Scan(&codUsu); err != nil {
 		log.Println(err)
 		return false
 	}
-	
+
 	return true
 }
 
 // Valida se usuário existe
 func UsuarioExiste(codUsu []byte) bool {
-	selectUsu := "SELECT username FROM Usuarios WHERE cod_usu = ?;"
+	selectUsu := "SELECT username FROM Usuarios WHERE cod_usu = $1;"
 
 	row := E.DB.QueryRow(selectUsu, codUsu)
 

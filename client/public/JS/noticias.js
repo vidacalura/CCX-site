@@ -1,4 +1,5 @@
-const API = "https://afeb-api.onrender.com/api";
+//const API = "https://afeb-api.onrender.com/api";
+const API = "http://127.0.0.1:4000/api";
 
 fetchNoticias()
 .then((noticias) => {
@@ -64,27 +65,29 @@ function mostrarNoticias(noticias) {
  * @returns {string} - Data formatada.
  */
 function formatarDataPublicacao(dataPublicacao) {
-    dataPublicacao = dataPublicacao.split("-");
-    dataPublicacao[2] = dataPublicacao[2].split(" ");
+    dataPublicacao = new Date(dataPublicacao);
 
     const mesesMap = new Map();
-    mesesMap.set("01", "janeiro");
-    mesesMap.set("02", "fevereiro");
-    mesesMap.set("03", "março");
-    mesesMap.set("04", "abril");
-    mesesMap.set("05", "maio");
-    mesesMap.set("06", "junho");
-    mesesMap.set("07", "julho");
-    mesesMap.set("08", "agosto");
-    mesesMap.set("09", "setembro");
-    mesesMap.set("10", "outubro");
-    mesesMap.set("11", "novembro");
-    mesesMap.set("12", "dezembro");
+    mesesMap.set(1, "janeiro");
+    mesesMap.set(2, "fevereiro");
+    mesesMap.set(3, "março");
+    mesesMap.set(4, "abril");
+    mesesMap.set(5, "maio");
+    mesesMap.set(6, "junho");
+    mesesMap.set(7, "julho");
+    mesesMap.set(8, "agosto");
+    mesesMap.set(9, "setembro");
+    mesesMap.set(10, "outubro");
+    mesesMap.set(11, "novembro");
+    mesesMap.set(12, "dezembro");
 
-    const dia = dataPublicacao[2][0];
-    const mes = mesesMap.get(dataPublicacao[1]);
+    const dia = dataPublicacao.getDay();
+    const mes = mesesMap.get(dataPublicacao.getMonth() + 1);
 
-    return `${dia} de ${mes}`;
+    const hora = dataPublicacao.getHours();
+    const minuto = dataPublicacao.getMinutes();
+
+    return `${dia} de ${mes} às ${hora}:${minuto}`;
 }
 
 /**

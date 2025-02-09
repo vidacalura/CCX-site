@@ -43,7 +43,8 @@ func (t *Trofeus) GetTrofeusJogador(codJog int) (int, string) {
 		FROM Trofeus
 		INNER JOIN Torneios
 		ON Trofeus.cod_torn = Torneios.cod_torn
-		WHERE cod_jog = ?;`
+		WHERE cod_jog = $1
+		ORDER BY Torneios.data_inicio DESC;`
 
 	rows, err := E.DB.Query(selectTrof, codJog)
 	if err != nil {
@@ -83,7 +84,7 @@ func (t *Trofeu) GetDadosTrofeu(codTrof string) (int, string) {
 		FROM Trofeus
 		INNER JOIN Torneios
 		ON Trofeus.cod_torn = Torneios.cod_torn
-		WHERE Trofeus.cod_trof = ?;`
+		WHERE Trofeus.cod_trof = $1;`
 
 	row := E.DB.QueryRow(selectTrof, codTrof)
 	err := row.Scan(&t.Torneio, &t.CodTrof, &t.CodJog, &t.CodTorn, &t.Posicao)
@@ -143,7 +144,7 @@ func (t Trofeu) ExcluirTrofeu() (int, string) {
 
 // Verifica se um troféu existe a partir de seu código
 func TrofeuExiste(codTrof int) bool {
-	selectTrof := "SELECT cod_jog FROM Trofeus WHERE cod_trof = ?;"
+	selectTrof := "SELECT cod_jog FROM Trofeus WHERE cod_trof = $1;"
 	row := E.DB.QueryRow(selectTrof, codTrof)
 
 	var codJog int

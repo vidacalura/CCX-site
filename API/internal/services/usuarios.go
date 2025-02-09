@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/vidacalura/AFEB/internal/models"
+	"github.com/vidacalura/CCX-site/internal/models"
 )
 
 func MostrarTodosUsuarios(c *gin.Context) {

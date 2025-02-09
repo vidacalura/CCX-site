@@ -100,7 +100,7 @@ func (t *Torneios) GetTorneios() (int, string) {
 
 // Retorna dados de um Torneio específico
 func (t *Torneio) GetTorneio(codTorn string) (int, string) {
-	selectTorn := "SELECT * FROM Torneios WHERE cod_torn = ?;"
+	selectTorn := "SELECT * FROM Torneios WHERE cod_torn = $1;"
 	row := E.DB.QueryRow(selectTorn, codTorn)
 
 	err := row.Scan(&t.CodTorn, &t.Titulo, &t.Descricao,
@@ -169,7 +169,7 @@ func (t Torneio) ExcluirTorneio() (int, string) {
 
 // Verifica se Torneio existe
 func TorneioExiste(codTorn int) bool {
-	selectTorn := "SELECT titulo FROM Torneios WHERE cod_torn = ?;"
+	selectTorn := "SELECT titulo FROM Torneios WHERE cod_torn = $1;"
 	row := E.DB.QueryRow(selectTorn, codTorn)
 
 	var titulo string

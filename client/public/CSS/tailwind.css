@@ -44,7 +44,7 @@ body {
 
 #bg-perfil {
     @apply w-screen h-[20vh];
-    background: linear-gradient(to right, #C5F29F, #538D22);
+    background: linear-gradient(to right, #9fc6f2, #22548d);
 }
 
 .img-perfil-container {

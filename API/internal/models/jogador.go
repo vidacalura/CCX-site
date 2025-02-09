@@ -114,7 +114,9 @@ func (r *RankingJogadores) GetTop50CCX() (int, string) {
 	selectRanking :=
 		`SELECT cod_jog, nome, apelido, titulo, info, elo_classico, elo_rapido,
 		elo_blitz, jogos, vitorias, derrotas, empates, data_nascimento
-		FROM Jogadores ORDER BY elo_classico DESC, elo_rapido DESC, elo_blitz DESC;`
+		FROM Jogadores WHERE elo_classico IS NOT NULL OR elo_rapido IS NOT NULL
+		OR elo_blitz IS NOT NULL
+		ORDER BY elo_classico DESC, elo_rapido DESC, elo_blitz DESC;`
 
 	rows, err := E.DB.Query(selectRanking)
 	if err != nil {
@@ -152,7 +154,7 @@ func (j *Jogador) GetJogador(codJog string) (int, string) {
 	selectJog := `
 		SELECT cod_jog, nome, apelido, titulo, info, elo_classico, elo_rapido,
 		elo_blitz, jogos, vitorias, derrotas, empates, data_nascimento
-		FROM Jogadores WHERE cod_jog = ?;`
+		FROM Jogadores WHERE cod_jog = $1;`
 	row := E.DB.QueryRow(selectJog, codJog)
 
 	err := row.Scan(&j.CodJog, &j.Nome, &j.Apelido, &j.Titulo, &j.Info,
@@ -225,7 +227,7 @@ func (j Jogador) ExcluirJogador() (int, string) {
 
 // Verifica se um jogador existe a partir de seu código de jogador CCX
 func JogadorExiste(codJog int) bool {
-	selectJog := "SELECT nome FROM Jogadores WHERE cod_jog = ?;"
+	selectJog := "SELECT nome FROM Jogadores WHERE cod_jog = $1;"
 	row := E.DB.QueryRow(selectJog, codJog)
 
 	var nome string

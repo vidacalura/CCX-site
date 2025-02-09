@@ -1,4 +1,5 @@
-const API = "https://afeb-api.onrender.com/api";
+//const API = "https://afeb-api.onrender.com/api";
+const API = "http://127.0.0.1:4000/api";
 
 fetchRanking()
 .then((ranking) => {
@@ -49,13 +50,14 @@ function mostrarRanking(ranking) {
         containerJogadorRanking.href = `perfil.html?codJog=${j.codJog}`;
 
         containerJogadorRanking.innerHTML = `
-            <div class="font-bold">
+            <div class="jogador-ranking-nome-container">
                 <p> ${i} </p>
-                <p> ${j.nome} </p>
+                <p> <b>${!j.titulo ? "" : j.titulo}</b> ${j.nome} </p>
             </div>
 
             <div class="ranking-jogador-rating-div">
-                <p class="rating-rapido"> ${(!j.eloRapid ? "Sem" : j.eloRapid)} </p>
+                <p> ${(!j.eloClassic ? "Sem" : j.eloClassic)} </p>
+                <p> ${(!j.eloRapid ? "Sem" : j.eloRapid)} </p>
                 <p> ${(!j.eloBlitz ? "Sem" : j.eloBlitz)} </p>
             </div>
         `;

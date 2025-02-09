@@ -904,7 +904,7 @@ body {
 #bg-perfil {
   height: 20vh;
   width: 100vw;
-  background: linear-gradient(to right, #C5F29F, #538D22);
+  background: linear-gradient(to right, #9fc6f2, #22548d);
 }
 
 .img-perfil-container {
@@ -946,9 +946,9 @@ body {
   border-radius: 9999px;
   border-width: 1px;
   --tw-border-opacity: 1;
+  background-color: #64b5f6;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgb(197 242 159 / var(--tw-bg-opacity));
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
@@ -994,7 +994,7 @@ body {
   width: 12rem;
   border-radius: 1.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(197 242 159 / var(--tw-bg-opacity));
+  background-color: #90caf9;
   padding-top: 3rem;
   text-align: center;
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -1005,7 +1005,7 @@ body {
 @media (min-width: 768px) {
   .rating-square {
     height: 15rem;
-    width: 15rem;
+    width: 12rem;
   }
 }
 
@@ -1062,8 +1062,7 @@ body {
 
 @media (min-width: 768px) {
   #legenda-tabela {
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding: 1rem 3rem;
     font-size: 1rem;
     line-height: 1.5rem;
   }
@@ -1187,7 +1186,9 @@ body {
 }
 
 @media (min-width: 768px) {
-  #legenda-tabela div,
+  #legenda-tabela div {
+    gap: 2.5rem;
+  }
 .ranking-jogador-div div {
     gap: 5rem;
   }

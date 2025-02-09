@@ -1,4 +1,5 @@
-const API = "https://afeb-api.onrender.com/api";
+//const API = "https://afeb-api.onrender.com/api";
+const API = "http://127.0.0.1:4000/api";
 
 const codTorn = new URL(window.location.href).searchParams.get("torneio");
 
@@ -45,7 +46,7 @@ async function fetchTorneio(codTorn) {
  */
 function mostrarTorneio(torneio) {
     document.getElementById("titulo-torneio").textContent = torneio.titulo;
-    document.getElementById("descricao-torneio").textContent = torneio.descricao;
+    document.getElementById("descricao-torneio").innerHTML = torneio.descricao;
 
     if (torneio.comentarios) {
         document.getElementById("comentarios-torneio").innerHTML = 
@@ -55,14 +56,4 @@ function mostrarTorneio(torneio) {
     document.getElementById("torneio-participantes").textContent = torneio.participantes;
     document.getElementById("torneio-resultados").innerHTML =
         torneio.placarFinal.replaceAll("\n", "<br />");
-}
-
-/**
- * Formata uma data em YYYY-MM-DD para DD/MM/YYYY.
- * @param {string} data - Data a ser formatada. Ex: 1970-01-01.
- * @returns {string} - Data formatada em DD/MM/YYYY.
- */
-function formatarData(data) {
-    const [ano, mes, dia] = data.split("-");
-    return `${dia}/${mes}/${ano}`;
 }

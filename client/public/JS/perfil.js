@@ -1,4 +1,5 @@
-const API = "https://afeb-api.onrender.com/api";
+//const API = "https://afeb-api.onrender.com/api";
+const API = "http://127.0.0.1:4000/api";
 
 const codJog = new URL(window.location.href).searchParams.get("codJog");
 
@@ -45,7 +46,7 @@ async function fetchPerfil(codJog) {
  */
 function mostrarJogador(jogador) {
     document.getElementById("username-perfil-jogador").textContent = jogador.nome;
-    document.getElementById("informacoes-jogador").textContent = jogador.info;
+    document.getElementById("informacoes-jogador").innerHTML = jogador.info;
     
     if (jogador.apelido) {
         document.getElementById("apelido-perfil-jogador").textContent = `(${jogador.apelido})`;
@@ -53,8 +54,8 @@ function mostrarJogador(jogador) {
         document.getElementById("apelido-perfil-jogador").style.display = "none";
     }
 
-    if (jogador.tituloAFEB) {
-        document.getElementById("titulo-jogador").textContent = jogador.tituloAFEB;
+    if (jogador.titulo) {
+        document.getElementById("titulo-jogador").textContent = jogador.titulo;
     } else {
         const tituloContainer = document.getElementById("titulo-perfil-jogador-container");
         tituloContainer.style.display = "none";
@@ -63,6 +64,12 @@ function mostrarJogador(jogador) {
     document.getElementById("vitorias-jogador").textContent = jogador.vitorias;
     document.getElementById("derrotas-jogador").textContent = jogador.derrotas;
     document.getElementById("empates-jogador").textContent = jogador.empates;
+
+    document.getElementById("rating-classico-p").textContent = (
+        jogador.eloClassic != null
+        ? jogador.eloClassic
+        : "-"
+    );
 
     document.getElementById("rating-rapido-p").textContent = (
         jogador.eloRapid != null
@@ -95,6 +102,14 @@ function mostrarPremiacoes(trofeus) {
 
         const trofeuDiv = document.createElement("div");
         trofeuDiv.classList.add("trofeu-div");
+
+        if (t.posicao === 1) {
+            trofeuDiv.style.backgroundColor = "#ffd700";
+        } else if (t.posicao === 2) {
+            trofeuDiv.style.backgroundColor = "#ddd";
+        } else if (t.posicao === 3) {
+            trofeuDiv.style.backgroundColor = "#b87333";
+        }
 
         trofeuDiv.innerHTML = `
             <p class="font-bold"> ${t.torneio} - ${t.posicao}º Lugar </p>`;

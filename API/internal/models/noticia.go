@@ -119,7 +119,7 @@ func (n *Noticia) GetNoticia(codNotc string) (int, string) {
 		FROM Noticias
 		INNER JOIN Usuarios
 		ON Noticias.cod_autor = Usuarios.cod_usu
-		WHERE cod_notc = ?;`
+		WHERE cod_notc = $1;`
 
 	row := E.DB.QueryRow(selectNotc, codNotc)
 
@@ -183,7 +183,7 @@ func (n Noticia) ExcluirNoticia() (int, string) {
 
 // Verifica se notícia com um dado código existe
 func NoticiaExiste(codNotc int) bool {
-	selectNotc := "SELECT titulo FROM Noticias WHERE cod_notc = ?;"
+	selectNotc := "SELECT titulo FROM Noticias WHERE cod_notc = $1;"
 	row := E.DB.QueryRow(selectNotc, codNotc)
 
 	var titulo string
